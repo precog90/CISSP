@@ -752,6 +752,150 @@ Users who configure virtual environments can cause huge outages
 Securing Communication Channels
 ===============================
 
+Face to Face in more secure channel than phone/email etc. 
+Sensitive Compartmented Information Facility(SCIF): A Sensitive Compartmented Information Facility (SCIF; pronounced "skiff"), in British and United States military, national security/national defense and intelligence parlance, is an enclosed area within a building that is used to process Sensitive Compartmented Information (SCI) types of classified information.
+
+In networks, challenge protecting confidentiality and integrity.
+
+For data in motion, physical path and logical path. First find types of data, VoIP/Video and Multimedia/Client-Server/Remote Access/Management and Control Protocols
+
+Advice: Make good choices
+
+VoiP - separate vlans, QoS as needed, Encryption as need for important individuals's calls
+Remote Desktop - open port on firewall if not, use RDP via a SSL VPN/IPSec 
+Wireless - 802.11i WPA2 centralized auth RADIUS, AES no WEP
+Management Protocols - SNMP v3 it has authentication, encryption and data integrity 
+Routing - OSPF etc with authentication so a new router can be a neighbor without authentication
+
+For connecting to servers, SSH no telnet 
+On backend, interfaces between server and server use secure options than plain-text options
+
+To make sure, monitor. Have systems in place to monitor.
+
+Information Security: Identity and Access Management (IAM)	
+===========================================================
+===========================================================
+
+Identity Management
+====================
+
+IM: Controlling user accounts, access and permissions 
+Directory Services: Popular Services Active Directory by Microsofy 
+Accessed directly or via LDAP. If using LDAP, use secure flavor of LDAP which uses TCP port 636 
+Benefits: Ability to single sign-on and access other services such as printer etc. Login one time to domain. 
+DS: On prem or off prem 
+Robust: There will be some fault tolerance built into it 
+In cloud: Identity Management as a service, still single sign on for services 
+If single sign on across companies, federated ID management (FIM)
+Entities have relationships and trust each other. 
+At company B, you can login with other domains/identity providers such as google. 
+
+OpenID Connect: OpenID Connect is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner.
+
+SAML: Security Assertion Markup Language is an open standard for exchanging authentication and authorization data between parties, in particular, between an identity provider and a service provider.
+
+AAA As Part Of Our Controls
+===========================
+
+Subject: Device/Entity making an active request to access an object - Bob the user
+Object: File on file server is an object 
+If all the middle entities all the transaction, that flow between subject and object is called access 
+Access control: It is control whether subject is able to get to the object 
+If file server requests to SQL for the data, file server is also a subject. Database record in SQL is object. 
+Subject: User, program or process 
+
+Suite of tools to control the access: Logical Access Controls/ Technical Access Controls
+How to know who is requesting: AAA Authentication Authorization Accounting 
+Authentication: Who you are and then validating. (via e.g Username and Password)
+Authentication is a two way street. For e.g bank website, we validate them via digital certificate signed by trusted CA. 
+For us, we authenticate via username and password
+Both way authentication done
+
+Authorization:What we can do, If we withdraw million dollars they validate if we have that
+Accounting: Debit our account for the amount we take out
+
+For Bob, we need to know who Bob is. 
+Second, controls in transit, controls on the file read/write permissions for Bob
+Third, when bob accessed and what he did. Keeping track 
+
+Centralized Authentication with RADIUS
+=======================================
+
+Bob can access the network:
+via WiFi [channel security via 802.11i WPA2]
+via connect to a LAN port in office [802.1x on the switch, supplicant on Bob device authenticate before allowed to transmit via switch]
+from home via SSL VPN [IPSec]
+from PSTN via RAS server which has a T1 connection which can accept multiple users over PPP and authenticate via PAP/CHAP 
+
+Where do your store Bob's credentials? AAA Server 
+RADIUS: Remote Authentication Dial In User Service RFC 2138 and is an OPEN standard
+Devices act as clients, RADIUS server permits/denies the access. 
+Bob is client and all devices such as switch, SSL VPN server, Wireless controllers, RAS server etc. are clients
+
+Using LDAP With Directory Services 
+==================================
+
+LDAP: Lightweight Directory Access Protocol
+Wireless controller acting as LDAP client using LDAP can ask Directory Server if Bob's credentials are good. If yes, it can allow the access.
+If lets say VPN server does not support LDAP, it can send RADIUS request to RADIUS server. RADIUS server can act as LDAP client and request Directory Server for the information. and then back.
+Integrating services such as AD and Kerberos can improve our management and security of users.
+VPN servers and AAA servers are configured in a way that they trust each other. AAA server allow configured devices to come and request for authentication of users.
+Same is true for Directory/LDAP server 
+Active Directory supports LDAP, hook in using LDAP and not have to create users again in AAA server. 
+AAA servers can specify additional details on how and when that user can connect. 
+TACACS: Terminal Access Controller Access Control System - Proprietary from Cisco and does what RADIUS does. Not use unless you are in a Cisco environment
+
+Multi-Factor Authentication Categories
+======================================
+Minimum 8 character, upper and lower case mixed and special characters
+Dont share static passwords, never
+Basis of multi factor authentication:
+HAK: Have, Are, Know - How to verify they are who they say they are 
+Know: like PIN of ATM in a bank : via Password - Non-Repudiation
+Have: like ATM card in a bank 
+Are: World of bio metrics 
+
+Possesion of two from these three, create a multi factor authentication system
+
+Biometric Acceptance and Rejection Rates
+=========================================
+HAK: Are : Biometrics (Iris scan, Fingerprints etc.) 
+It costs money 
+Enrollment process to get people in the system 
+People might not be willing 
+These are barriers to biometrics 
+Lets say all enrolled, if somehow system does not recognise them due to some changes to their prints - slow rate of throughput 
+More sensitive system is more failure rate -  False Rejection Rate FRR (Type 1)
+User might have to try again and again 
+Decreasing sensitivity: FAR False Acceptance Rate (Type 2)
+Crosspoint is the line where graphs between Number of failures and sensitity for FAR and FER intersect. 
+It is called Crossover Error Rate(CER) or Equal Error Rate(EER)
+Lower CER better, fine tune system for a lower CER 
+
+Options for Biometric Authentication
+====================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
