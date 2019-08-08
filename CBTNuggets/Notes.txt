@@ -1,0 +1,807 @@
+Information Security: Security and Risk Management
+==================================================
+==================================================
+
+CIA Concepts
+============
+
+CIA: Confidentiality Integrity Availability
+Confidentiality: Those who are authorized can see it and work with data. Encrypt it and only authorized people will have keys to decrypt ensuring confidentiality. IPSec
+Integrity: No modification to data in transit or rest. Hashing
+Availability: Authorized individuals can get to their data. No Denial of Service attacks. Fault tolerant disk system.
+
+Using CIA to apply the correct security solution.
+
+Cyber Crime Terms and Vocabulary
+================================
+
+Cyber Threat Actor: Person or entity performing attack
+
+Black Hat: Compromise the system in unlawful way.
+White Hat: Ensure security measures are in place and doing their job.
+Gray Hat: In the middle of Black and White Hat.
+Suicide Hacker: Does not care about their own personal safety, in it for their cause.
+Hacktivist: Not as dedicated as suicide hackers, hacktivist do it for cause such as corruption, save the planet etc.
+Script Kiddie: Who dont have all the expertise, but can leverage scripts and tools to launch attacks.
+Cyber Terrorist: Using expertise for their cause or to perpetrate terrorism.
+State Sponsored Hacker: Team or hacker sponsored by team.
+
+Computer Crimes
+Cyber Crimes is a broad word for system based and network based crimes
+Unlawful access:
+In US:
+Electronic Communications Privacy Act of 1986
+Computer Fraud and Abuse Act 1984
+National Information Infrastructure Protection Act of 1996
+Wiretap Act
+
+When company compromised, Incident Handling Process comes in action while knowing rules/regulations/laws for IP/Physical Security and then reporting it to federal law agencies(Interpol,FBI,Homeland Security) if needed. Law enforcement agencies catch criminals, its on the company to clean up the breach. If damage is serious enough, DR plan or Business Continuity Plan comes in action.
+
+27000 Series Framework
+======================
+
+ISO/IEC 27001 and 27002 ISMS Specifications
+ISMS: Information Security Management System
+ISO: the International Organisation for Standardization
+IEC: the International Electrotechnical Commission
+27001: Big Picture, what we should be doing but not specifics on how to. Such as Context of the organisation, Leadership, Planning etc.
+27002: Nitty Gritty. Such as HR security, asset management, access control, cryptography etc. 
+
+Due Care and Due Dilligence
+===========================
+Criminal: You broke a law made by government.
+Civil: You harmed another person, disputes between private parties
+Due Care: The appropriate level of judgement, prudence, and activity a person should reasonably be expected to have in a given situation
+Trade secrets: S/W Code, Secret Sauce etc.
+Threats: Reverse Engineer the code is a threat to the S/W company since someone is trying to get on their trade secrets
+
+Due Care: Putting measures in place to protect something.
+Due Diligence: Ensuring that those measures remain sufficient to protect that something.
+
+Due Care is applying remediation to an identified vulnerability on an asset, while exercising Due Diligence would be to continue to Penetration Test the asset on a timely basis to ensure the defensive measure applied still works.
+
+Inside Threats and Ethics
+=========================
+Personnel
+Hacker: Wants to know more about the network using hacking tools
+Cracker: Mal intent and attempt unlawful access
+If CISSP ethics are higher than the company ethics, what should you do? 
+=> Whichever is higher, do that
+When you should report security vulnerabilities?
+Immediately
+
+Policies start with Senior Management
+=====================================
+
+Security policies began at Senior Management. Senior Management must endorse and own responsibility of data within the organisation. Senior Management/Owner of the data decides who else can access that data. 
+Owner of data classify sensitivity of data such as high, medium, low and unclassified.
+Identify critical systems
+Regulatory and Legal Compliance
+Security objections will be inline with business objectives. Money spent based on classifaction and criticality of data.
+
+Defining Risk
+=============
+
+Threat Agent: Takes advantage of a weakness
+Vulnerability: Weakness in a system
+Risk: The probability of a threat causing loss
+Coutermeasure: Compensates for a vulnerabilitiy
+
+Risk Analysis
+Quantitative: Evidence Based
+Qualitative: Expert or Use Case Scenario Based
+
+You have three risk analysis methods to choose from: qualitative (which uses a risk analysis matrix), quantitative (which uses money or metrics to compute), or hybrid (a combination of qualitative and quantitative but not an answer choice in this scenario). Because the ISP has monitoring and log data, you should use a quantitative approach; it will help quantify the chances of additional customers experiencing a security risk.
+
+
+To find vulnerabilities, do a co-ordinated penetration testing with a clearly defined SoW.
+
+Control Types
+=============
+
+Classify and Reclassify data with time based on sensitivity. Helps reduce costs since you are not CIAing data which is now common knowledge.
+Rule of Least Privilege: Give bare minimum access [Confidentiality]
+Implement Privileges using Grouping subjects(Role Based Access) It simplifies the provisioning and adminstration rights
+Group Objects
+
+Controls of main three types:
+Adminstrative Controls[Policies and Procedures, Separation of Duties(One PO and other paying for it), Guys who manage network dont manage the SIEM, Background checks, Security Awareness Training]
+Technical Controls[IDS/IPS, Access Control Lists, Authentication, Separate Management Network, Encryption etc.]
+Physical Controls [Security Guard, Locked Door, Fence etc.]
+
+Deterrent Controls: Deters attacker
+Preventative Controls:Blocks attacker
+Detective Controls: Detects attack is happening
+Corrective Controls: Recovery
+
+Deterrent frameworks are technology-related and used to discourage malicious activities. For
+example, an intrusion prevention system or a firewall would be appropriate in this framework.
+There are three other primary control frameworks. A preventative framework helps establish security policies and
+security awareness training. A detective framework is focused on finding unauthorized activity in your environment
+after a security incident. A corrective framework focuses on activities to get your environment back after a security
+incident. There isn’t an assessment framework.
+
+Compliance Requirements
+=======================
+Based on the data we are housing, regulatory compliance requirements are there. 
+SoX Sarbanes Oxley Act for accounting 
+HIPPA: Health Data
+
+PCI DSS: Payment Card Industry
+Never send any sensitive information in cleartext 
+SDLC code reviews
+Proper treatment of cookies
+
+What sort of controls?
+Based on kind of compliance we are going for.
+
+Disaster Recovery, Business Continuity(BC) and Business Impact Analysis(BIA) 
+===========================================================================
+
+Steps to take:
+Policy Statement
+
+BIA:
+ID ALLCritical Systems
+Outage time tolerated
+Impact of those systems being down on business
+Regulatory Compliance due to being down
+Cost/Expense
+Dependencies on other systems
+Customers
+Risks
+Assess the potential loss if system is not available to help understand the impact of destructive event
+Vulnerability Analysis
+Senior people are involved
+
+Security Awareness Training
+===========================
+Encrypt Disk
+No Plain Text Protocols for sensitive information
+Social Engineering: For e.g shoulder surfing 
+Weakest link: Human factor
+Shred paper, Magnetic CDs/DVDs
+Sign Security Policy by users every year
+
+Intellectual Property and Licensing
+===================================
+Copyright: Expression of idea, content, art
+Trademarks
+Service Marks
+Intellectual Property
+Licensing: EULA End user license agreement
+In Patent you tell how you do something, if it is secret it is more of a trade secret. People who work with or form him will sign NDA/Trade Secret Policy
+DMCA Digital Millenium Copyright Act to protect creators and owners of IP
+Violation of licensing, report at www.bsa.org
+
+Patent: Protects an invention
+Trademark: Protects image or brand
+Trade secret: Not fully disclosed to the public 
+Copyright: Protects the distribution for the creator
+Service Mark: Protects the service
+
+Policy Life Cycle
+=================
+
+Develop a policy - Senior Management
+High level statements and guidance
+Considering regulation/legal requirements while developing policies
+
+Publish the policy
+
+Adopt the policy
+
+Review the policy - Annual, Quarterly etc. 
+
+Funded
+Attainable
+Reliastic
+Adaptable
+Enforcable
+Implement(Procedures) > Measure it(Standards) > Adaptable
+Graphical Repr of Procedures
+Flow charts
+Guidelines
+
+To verify, information security officer/compliance officer responsibility
+
+Threat Modelling
+=================
+Identifying potential vulnerabilities and putting countermeasures to mitigate risk
+
+Approaches:
+Looking from attacker's perspective [outside or inside]
+From architecture perspective
+Focus on assets
+
+SIEM Logs : IOC (Indicator of Attack) Recognise Attack befor it happens or as it happening
+
+OSINT: Open source intelligence [shodan, maltego etc.]
+ISAC: Information Sharing and Analysis Center: non profit as central resource for threats
+
+Supply Chain Risk Management(SCRM)
+============================
+what and who? 
+What are risks?
+BIA + Contingency Plans
+Right contracts NDA/Fail to deliver etc. 
+Pick vendors who are following certain quality standards(ISO 9001) information security standards(ISO 27001) 
+Third party audits AICPA (American Institute of CPAs) and generate SOCs(Service and Organisation control report) 
+Standards for doing the reporting. SAS70/SSAE16/SSAE18  Standards for Attestation Engagements (SSAE)
+to provide user organizations reasonable assurance that controls at their service organizations, relevant to their internal controls over financial reporting (ICFR) are suitably designed and operating effectively.
+Monitoring and Maintaining the relationships
+
+QA
+==
+
+Q: You are working on a business continuity project for a company that generates a large amount of content each day for use in social networks. Your team establishes 4 hours as the maximum tolerable data loss in a disaster recovery or business continuity event. In which part of the business continuity plan should you document this?
+
+A: Recovery point objective (RPO)
+
+The RTO establishes the maximum amount of time the organization will be down (or how long it takes to recover), the RPO establishes the maximum data loss that is tolerable, the MTD covers the maximum tolerable downtime
+
+
+
+
+Information Security: Asset Security
+====================================
+====================================
+
+Classifying assets and information
+==================================
+
+FIPS PUB 199 
+Federal Information Processing Standards Publication
+
+High Impact
+Moderate
+Low 
+
+Information type: (C, Impact), (I, Impact), (A, Impact)
+
+Classification National Security Information
+Confidentiality has different levels assigned
+Confidential: damage
+Secret: serious damage
+Top Secret: grave damage
+
+Other Data Classifications:
+
+SBU Sensitive but unclassified
+SSI Sensitive Security Information
+CUI Controlled Unclassified Information
+
+In a non government environment, labels can be:
+
+Protected: SIN, Birthdays etc.
+Proprietary: Intellectual Property
+Confidential: Only internal use
+Public: Free to distribute publicly
+
+Stewards of Assets and Information
+==================================
+
+Owner:
+Create Policy + Guidance
+Assign Values to Asset/Data
+Classify the Asset/Data
+Authorize Access + Permissions
+
+Custodians:
+Implement Contols & Protections based on classifaction and policy
+Manage Monitor and Report (Good or Bad)
+
+Assets:
+Hardware/Software/Data
+
+Software: 
+Software Asset Management(SAM) Program
+Document what is in use and where
+Audit to verify compliance and licensing
+Report + Correct Problems/Violations
+
+Hardware Inventory Management
+Document what is in use and where
+Track from onboard of hardware all the way to disposal
+
+Configuration Management
+Baseline configuration
+Change Control all the way
+
+Protecting Privacy
+==================
+
+PII: Personally Identifiable Information
+SSN, Passport Number etc
+
+PHI Protected Health Information
+Only authorized by owners
+
+Regulations and laws require it
+GDPR General Data Protection Regulation
+HIPAA Health Insurance Portability and Accountability act
+
+The privacy act(PII)
+The Cookie Law
+Goal: Protect privacy of the user
+
+PIA: Privacy Impact Assessment
+what is collected, from whom and why
+what are the requirements
+
+PTA: Privacy Threshold Assessment
+
+Gramm-Leach-Billey Act: Financial Information Privacy
+
+Children's online privacy protection act (COPPA)
+
+Data Retention
+==============
+
+Archiving - Actively storing to later access the data
+Legal hold - A legal hold is a process that an organization uses to preserve all forms of potentially relevant information when litigation is pending or reasonably anticipated.
+Legal hold supersedes company's retention policies
+Electronic Discovery - refers to discovery in legal proceedings such as litigation, government investigations, or Freedom of Information Act requests, where the information sought is in electronic format (often referred to as electronically stored information or ESI).
+FRCP: Federal Rules of Civil Procedure It contails rules of discovery 
+
+To remove date:
+wiping
+degauze
+shred/pulverize,pulping,burning
+
+Certificate of destruction from the company destroying data
+
+Determining Security Controls
+=============================
+
+Data Owner - Responsible for oversight, classifaction, controls, access
+Done by Directors, Senior Managers etc.
+
+Custodians: Implementation and Monitoring of the security controls
+Done by middle managers and team leads
+
+control: intended stragtegy/policy intended to reduce the risk of breach/ negative impact
+
+control functions:
+deterrent
+preventive
+detective 
+corrective
+compensating
+
+types of controls:
+adminstrative: separation of duties, forced vacations etc.
+technical/logical controls: access controls 
+physical controls: locks
+
+controls should be inline with business objectives (data usable etc.)
+
+encryption: logical control related to confidentiality
+data owner: oversight and classifaction guidance
+data custodian: the literal implementation of controls
+controls: design to reduce or eliminate a vulnerability
+
+Data State and Resources for Security Control Frameworks
+========================================================
+
+State of Data: Rest/Transit/Memory
+
+ISO: the International Organisation for Standardization
+IEC: the International Electrotechnical Commission
+27001: Big Picture, what we should be doing but not specifics on how to. Such as Context of the organisation, Leadership, Planning etc.
+27002: Nitty Gritty. Such as HR security, asset management, access control, cryptography etc.
+
+Use NIST guidelines/frameworks
+
+Use FIPS
+
+NSA Rules
+
+Information and Asset Handling Policies
+=======================================
+
+Standards -> Baseline (Router, Switch, Firewall, PCs etc.)
+Asset Handling Policies -> Communicated to Custodians/Users
+Care based on classifaction
+If classifaction is proprietary: can it be transmiited, can it stored on mobile, how it is to be destroyed etc.
+User Training -> starts with onboarding -> Acceptable use policy sign off -> Annual or semi annual trainings
+On top, technical controls to enforce policy for critical data -> DLP, Email Scanning, User agenst acting as watchdog on local devices
+
+Information Security: Security Architecture and Engineering	
+===========================================================
+===========================================================
+
+Designing with Security in Mind
+===============================
+
+Security in the design
+Minimize the attack surface - network(ports) applications(calls) 
+Baselines- Baseline configuration with security best practices
+Secure Tools- Known good tools (weak api)
+Rule of least priveleged - just say no - permissions for functionality they need
+Defense in depth - Multiple lines of defense NGFW/Antivirus on PCs/ACLs on switches 
+Separation of duties - one composing changes, different approver
+simplicity - less opportunity for the attacker 
+
+Security Model Fundamentals
+===========================
+
+Trustworthy state - Non interference, information flow does not compromise
+
+subject(bob) objects(groups etc.)
+Bell-LaPadula Model(Focused on confidentiality): The Bell–LaPadula Model (BLP) is a state machine model used for enforcing access control in government and military applications.
+
+It has: 
+The Simple Security Property states that a subject at a given security level may not read an object at a higher security level. - No READ UP
+The * (star) Property states that a subject at a given security level may not write to any object at a lower security level. - No WRITE DOWN
+The Discretionary Security Property uses an access matrix to specify the discretionary access control.
+
+Biba Model(Focused on Integrity): The Biba Model or Biba Integrity Model developed by Kenneth J. Biba in 1975,[1] is a formal state transition system of computer security policy that describes a set of access control rules designed to ensure data integrity. 
+
+The Simple Integrity Property states that a subject at a given level of integrity must not read data at a lower integrity level (read up or No READ DOWN).
+The * (star) Integrity Property states that a subject at a given level of integrity must not write to data at a higher level of integrity (write down or No WRITE UP).
+Invocation Property states that a process from below cannot request higher access; only with subjects at an equal or lower level.
+
+Clark-Wilson Model(Focused on Integrity):
+
+Subjects ----------------- Something in the middle to avoid direct access---------------------Objects
+Called Access Control Triple
+
+Brewer and Nash Model(Focused on conflict of interest): Focus mitigating conflict of interest 
+
+HRU Harrison, Ruzzo, Ullman Model: focus on integrity of access rights in the system. 
+
+System Security Requirements
+============================
+Vendors:
+Functionality and Assurance that it is going to do what it says it will do. 
+Certification and accreditation can be used to assist in creating a trusted computing system. 
+TCSEC -> ITSEC -> CC(Common Criteria)[Protection Profile: What we want, Security Target: What we have]
+
+Hardware and Firmware Security Capabilities
+===========================================
+
+BIOS Password || UEFI New - Verifies each component before it is ran and Use Secure Boot which verify digital signatures of the code etc.
+TPM Trusted Platform Module - Hardware Chips to keep keys, certificates etc.
+Encryption on Hard drive - CPU from the CPU or special modules which will take the load HSM Hardware Security Module (For e.g, Cryptography for VPNs using HSMs faster)
+CPU Protection Rings - Ring 0 most protected(Kernel) --- Ring3 User games 
+
+Assessing Vulnerabilities
+=========================
+Client Based/IOT things/Database Systems/Client-Server/Cryptographic Systems etc. etc.
+One of the vulnerabilities:
+Elevated Priveleges
+Service Accounts/Admin accounts only used for intended purpose not daily use
+Outdated Software/Firmware/hardware - Inventory
+Malware
+Remote Access from where to where, requirements, lock it down. If not needed, disable
+Documentation and clarity on ownership of the systems
+Peer to peer networking
+
+Vulnerabilities in Web Based Systems
+====================================
+Good H/W and OS
+Allow 80 and 443 on firewall to server
+TCP intercept on firewall to avoid SYN Flood or other attacks
+Host Based IPS
+Network Based IPS in the path between server and client
+Web Application Firewall - All requests first to WAF, inspects it and send it to the server
+Applications need to be secure - Identify top 10 hacks and write code to prevent from them
+OWASP: open web application security project 
+OWASP Top 10 security risks :
+
+Injection
+Broken Authentication
+Sensitive Data Exposure
+XML External Entities(XEE)
+Broken Access Control
+Security Misconfiguration
+Cross Site Scripting(XSS)
+Insecure Deserialization
+Using components with known vulnerabilities
+Insufficient Logging and Monitoring
+
+
+Vulnerabilities in Mobile Systems
+====================================
+Lots of Data
+Lots of connectivity options NFC Bluetooth WiFi
+Easily Stolen
+Mobile policy is important
+Onboarding/Offboarding Rules - Data stored, authentication, obligations
+Inventory system keeping track of the devices
+Remote wipe feature
+Enterprise solutions for Mobile - 802.1x authentication, encryption of local data, idle timeout, centrally managing mobile devices to push policies/apps allowed
+Hybrid approach, some decisions user can make, other are globally applied and can not be changed
+
+Vulnerabilities in Embedded Devices
+====================================
+Internet connected
+Vulnerability Types:
+Progamming mistakes/weakness
+Web-base interface vulnerabilities
+Missing/weak password - backdoor
+older encryption algorithm that can be easily broken
+
+Attack Types:
+Hijacking the control plane
+Reverse Engineering
+Infect with malware
+Inject Input into system
+Eavesdrop on system and replay the packets
+Bruteforce attack if weak cryptography
+
+Inventory as much as you can so that you dont forget during reviews and perform security checks properly.
+
+Facility Design and Controls
+============================
+Security baked
+Defence in layers
+fences
+bollards
+locks
+cctv + guard 
+sensor types 
+coming in/out audit trails
+emergency exits/drills/procedures
+HVAC
+Environmental 
+Fire detection and prevention
+
+Symmetric Encryption Concepts
+=============================
+Same key to encrypt and decrypt
+Algorithm e.g DES, 3DES, AES-128,192,256 based on Rjindal Cipher, RC4,RC5,RC6
+
+C-Encrypt
+I-Hashing
+A-Authentication not Availability
+
+
+PlainText: Encryption Algorithm + Key : CipherText
+CipherText: Encryption Algorithm + Key : PlainText
+
+Transposition: Rearrange bits/characters/blocks of characters to create CipherText
+Substitution: Replace with other E.g Caesar cipher Key is n character switch
+
+Symmetric Keys and Algorithms
+=============================
+
+Symmetric Key other names: Single Key, Secret Key, Session Key, Shared Key, Private key cryptography.
+Preshared Key is not secret key to encrypt actual date. It helps with authentication of source. 
+
+Asymmetric Encryption Concepts
+==============================
+Key pairs
+(K1, K2) created mathematically (publice key, private key)
+K1 encypt --> K2 can decrypt
+K2 encrypt --> K2 can decrypt
+public key share with others
+private key keep it private to you
+Encrypt using public key, and owner of private key will decrypt it
+
+This protects negotiation of session key 
+
+Famous Implementation: RSA Encryption + Digital Signatures
+Asymmetric is slow 
+Most data uses symmetric encryption algorithm because of less overhead and fast. Digital signatures and RSA for securely exchanging keys.
+
+Digital Signature Concepts
+==========================
+
+Bank server sends digital certificate. 
+Bob's computer checks validity date. 
+Next, Bob's computer checks if it is signed by trusted certificate authority
+If yes, Bob's computer extracts public key and use it to encrypt the data and begin conversation
+
+Bank Server: data --> hash --> Encrypts the hash with private key along with encrypted data --> Encrypted hash is called digital signature 
+Bob receives it --> Bob uses sender's public key to decrypt the hash. --> Calculates his own hash on the data 
+hash matches with decrypted hash --> Integrity of data and source of data is bank 
+
+digitally sign - non repudiation - bank can't deny it was not me 
+
+CA issues digital certificates to institutions, verifies the authenticity of the institution and takes the public key, create X.509 format certificate and signs it. 
+Banks take that certificate and use it on their website
+Bob browser has prebuilt list of CAs 
+CRL: Certificate Revocation Lists - Certificates retired
+
+Hashing for Integrity
+=====================
+Speacialized Hardware Based Encryption is faster but more expensive than software based encryption
+
+One way hashing 
+Data ===> Hashing ===> Tiny value 
+To verify file is not changed run algo and matches the published hash value
+Impossible to reverse engineer data from the hash
+MD5 SHA-1-160, SHA-256, SHA-384, SHA-512
+To avoid MITM, HMAC + secret is used 
+hash is calculated with secret in data, and attacker does not know the secret. It helps in validating entity on the other end
+
+Asymmetric Encryption with Email
+================================
+Email + Hash(Encrypted by Bob's(Sender's) Private Key)
+
+Encrypted Hash: Digital Signature
+
+Receiver:
+Decrypt the hash using Sender's public key = Hash
+Own hash on the data = Hash
+Both hashes should match
+Non repudiation
+
+For confidentiality, add encryption 
+Use asymmetric key cryptography to set-up session key which will be used for encryption. 
+Encrypt Email + Encrypt with Key with other party's public key ==> Send ==> Received ==> Key will be decrypted using private key and then email decrypted
+This is basis for PGP Pretty Good Privacy: Asymmetric for key exchange and symmetric for encryption of email and digital signatures
+
+PKI and Revoking Certificates
+=============================
+
+PKI:
+Issue certificates
+Validate certificates
+Revoke certificates
+
+
+If an entity has public/private key pair and they want to put their public key into a digital certificate.
+
+By having a PKI infrastructure, they can go to CA with an enrolment request. CA validates them. Creates the certificate with requestors public key, digitally signs and sends it back to them. 
+
+Since user trusts CA, when certificate signed by CA is presented, user trusts it. 
+
+If public key is compromised, entity notify CA to revoke the certificate
+
+User use either CRLs certificate revocation lists[Download revoked certificate lists] or OCSP Online Certificate Status Protocol [Realtime online check]
+
+Power Considerations
+====================
+Spike: Momentary rush of power
+Surge: Prolonged rush of power
+Sag: Short drop in voltage
+Browout: Prolonged drop in voltage
+Fault: Momentary loss of power
+Blackout: Total loss of power 
+
+UPS Uninterruptable Power Supply - Standby unit 
+There is little switch over time. To avoid any switchover, people can use Interactive UPS
+Redundant UPSs
+In DC, A side and B side. UPS 1 to A side and UPS 2 to B side. 
+ESD prevention - Use precautions to avoid that static to build, avoid shocks and burnt equipment
+
+
+Information Security: Communication and Network Security	
+===========================================================
+===========================================================
+
+OSI and IP Models
+=================
+
+OSI
+Please do not throw sausage pizza away
+Physical Datalink Network Transport Session Presentation Application
+
+DoD TCP/IP:
+[Physical]Access [Datalink]Network [Network]Internet [Transport]Host-To-Host [Session Presentation Application]Process/App 
+
+Actual TCP/IP:
+Physical(Repeaters/Hubs) Datalink(Switches/Bridges) Network(Routers/FWs) Transport Application(HTTP/DNS)
+L4 - Segment
+L3 - Packet
+L2 - Frame
+L1 - Bits
+
+L4 - TCP(Connection Oriented)/UDP(Connection less)
+L3 - IP
+
+Better understanding of stack, better protection
+
+IP Networking
+=============
+
+When you go to www.google.com -> DNS Request -> ARP -> Routing of the IP via routers and firewalls 
+
+DNS Poisoning
+ARP Poisoning 
+URL Filtering
+Proxy as single point for all traffic and scans to ensure all is good
+NGFW IDS/IPS
+WAF for incoming traffic to protect servers 
+Change control
+
+Wi-Fi Security Considerations
+=============================
+
+Concerns with Wi-Fi:
+
+Possibilies of anyone doing reconnaissance
+Wardriving: act of searching for Wi-Fi wireless networks by a person usually in a moving vehicle, using a laptop or smartphone.
+Network Sniffing
+Evil Twin : Impersonating APs
+Can be jammed/interfered by rogue devices
+
+Change default passwords as part of baseline configuration
+New devices onboarding process , just limiting their L2 MAC. When person/device leaves offboarding
+best techniques for auth and encryption 802.11i (WPA2 Enterprise)
+Radius server for authentication of Wifi users
+802.1x which leverages a supplicant on the devices. This way devices are getting authenticated as well along with users.
+For users 2 FA
+With 802.1x use certificates
+Use good vendors and patch 
+Guest users - total separation from corp - capture who they are - temporary token
+Wireless IDS/IPS - look for rogue APs/ Triangulate/ Jam rogue APs 
+AUP - User trained dont plug any unauthorized devices with proper onboarding process
+Physical switch 801.x which supplicant on device that connect
+Physical switch ports port security one mac per port
+
+Network Componenet Security
+===========================
+
+Wi-Fi Eavesdrop
+UTP Cable : Emanation of signal - US Govt codename tempest to studying leak of data from cables, or you can use fibre which has minimal emanation of data
+What is connecting into our network - Who we want to allow to connect - only authorized devices - 802.1x, 802.11i traffic encrypted back and forth, certificate for devices
+anti malware , firewalls on PCs, NAC agent on computer - compliance on hosts - if not redirect on a vlan to correct the problem
+Port Security, Vlans, 802.1x , good logs, change control 
+If individual has physical access, it is compromisable - Denial of service, console access, password reset etc.
+
+Virtualized Network Security Considerations
+===========================================
+ 
+Change control for users to go and make changes without proper approvals
+Users who configure virtual environments can cause huge outages 
+
+Securing Communication Channels
+===============================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
