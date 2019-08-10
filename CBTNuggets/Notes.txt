@@ -875,6 +875,422 @@ Lower CER better, fine tune system for a lower CER
 Options for Biometric Authentication
 ====================================
 
+Best to Least:
+1. IRIS Recognition: IRIS does not change birth to death
+2. Retina Scan: Blood vessels pattern on the retina on the back side of eye
+3. Fingerprint Recognition: Ton of details - Absolute identifier - Could be certain portion of the hand
+4. Palm Recognition: Hand Recognition/Geometry - some fingerprint information but not in detail - Hand Topography
+5. Facial Recognition: Hand close details 
+6. Voice Recognition
+7. Signature Recognition
+
+DAC, MAC and RBAC
+==================
+Bob trying to access file1 
+
+MAC: Mandatory Access Control - Just say No - Entire system is managed by rules - rules are done by administrators - Policy created is the Access control for the system 
+Clearance levels for user and some sort of classifaction for files, lets say:
+TS 
+Secret (S)
+Classified (C)
+Unclassified (U)
+
+Take all objects and put a classifaction on them. And then assign user a clearance.
+Then rules by administrators saying lets say anyone with TS can go and read anything on TS and below etc.
+
+Model Examples: 
+Bell-LaPadula, No Right Up - No Right Down - Confidentiality
+Biba, NRD - NWU - Integrity
+Clark-Wilson - Integrity
+
+ For MAC, you need to have an OS that understands that. By default Windows and others are not MAC systems.
+ 
+ DAC: Discretionary Access Control 
+ Owner of the data gives access to the data whoever he/she thinks. 
+ 
+ RBAC: Role Based Access Control 
+ Centralized Administered Access Rights based on Subjects and Objects mappings 
+ Owner does not determine who gets access but a centralized managed access 
+ 
+IAM Provisioning Lifecycle
+==========================
+
+4 Phases:
+Onboarding - Change control - User Agreements(NDA) - Account Creation - Avoid shared accounts and admin accounts - Individual Accounts initially blank - Orientation 
+Authorization and Assignment - Rights/Permissions by owner - Change control - Specific groups assignment according to the role - Security Awareness Training according to groups - SP 800-50 Building a Security Training Program 
+Audit/Maintain - Havent been logged in six months (disable inactive accounts) - Auditing on effective permissions(automated) - Permission creep(People change projects and keep permissions from older projects) - Activity of the accounts - Recertification of groups/accounts according to requirements 
+Offboarding - Reassign ownership of files and folders 
+
+Information Security: Security Assessment and Testing
+======================================================
+======================================================
+
+Testing, Auditing, and Assessment Overview
+===========================================
+For Financial Institutions:
+Gramm-Leach-Bliley Act requires financial institutions – companies that offer consumers financial products or services like loans, financial or investment advice, or insurance – to explain their information-sharing practices to their customers and to safeguard sensitive data.
+
+FISMA: Federal Information Security Modernization Act
+
+Payment Card Industry Data Security Standard(PCI DSS) Compliance
+
+Assurance: By performing information security assessment 
+We can do via Examination : Take data and look at that, observe, study and compare how it is compared to security baseline and regulations.
+We can do via Testing: Injecting something into system - Cause and effect For e.g during scheduled MW do failover checks 
+
+Testing:
+Internal: Could be biased since its their baby system, internal staff little friction with external or third party 
+External: More unbiased compared to internal
+Third Party: More unbiased compared to internal 
+
+Overt communication/agreement/operation: When information about testing is shared with internal teams 
+Covert communication/agreement/operation: Like pen testing, where internal teams does not know to find issues
+
+If possible, communicate, educate teams that its best for the business. 
+
+Penetration Testing
+====================
+Manual
+Automatic
+Both 
+
+Black Box Testing: Staff knows, Penetration Testing team does not about the system
+Double Blind: When neither sides dont knowing
+Grey: Both limited information
+White: Everyone knows, what if scenarios
+
+Very important in penetration testing: Scope + Permission
+
+Scope: What is allowed to do, devices. For e.g find vuln but do not attack
+Passive Recon: Getting information about the target without touching the systems
+Active Recon: Monitoring can catch 
+Plan + Attack + Exploit 
+
+Reporting: What, how, attacks, vulnerabilities, recommendations 
+
+If major vuln, during testing report right away but to fix, go thru proper change control 
+
+Vulnerability Scans and Assessments
+===================================
+Trust and Verify
+Proactive Verification 
+Outdaed software/hardware/OS patches, deviation of policy, what may or may not run
+Different compliance requirements, vuln scanner which has plugins for compliance 
+Might have agents running on individual systems working in conjunction with scanner, other quick/full scans, open ports , plugins update and vuln databases updates on scanner 
+CVE database: Common Vulnerabilities and Exposures 
+
+Reviewing and Testing Code
+==========================
+Why write own? Security/Customizations
+Software should have functionality
+Software should be secure 
+
+How to verify, ongoing tests
+Static Code Review: line by line check , lots of time, expert
+Dynamic: Software behavior when its running, memory calls, testing as good as tool 
+Use Case: Security mechanisms and controls are acting properly 
+Stress Testing: large number of transaction 
+Fuzzing: Invalid inputs, Misuse of the system testing
+Regression Testing: Testing after any changes to ensure new changes havent broken the system functionality or introduced any weaknesses. 
+
+Security-Related Data Collection
+================================
+We can not analyse data that we dont have access to 
+An IOC is often described in the forensics world as evidence on a computer that indicates that the security of the network has been breached. 
+Unlike Indicators of Compromise (IOCs) used by legacy endpoint detection solutions, indicators of attack (IOA) focus on detecting the intent of what an attacker is trying to accomplish. As a result, next-generation security solutions are moving to an IOA-based approach.
+
+Controls:
+Host Based IDS/IPS: On critical servers, only certain applications/processes run, file integrity checking, AV, Anti malware updated, local firewalls stateful nature, policy to avoid removable media, reporting features to report back to centralized location. Someone can monitor activities/events to see anomaly based behavior
+Network Devices reporting network/security related behavior and analyzed by software/people 
+DLP
+NGFW - UTM/IDS/IPS/Intercept of SSL 
+WAF: Web application firewall for web servers - stop SQL injection, Cross site scripting - collect this data - analyse and alerts generated 
+
+Logs reported back to cental logging system 
+
+Continuous Monitoring
+=====================
+Continuous monitoring IOA/IOC 
+From National Institute of Standards and Technology: Special Publication SP 800-137 titled Information Security Continuous Monitoring (ISCM) for Federal Information Systems and Organizations
+
+++ ISCM is defined as maintaining ongoing awareness of information security, vulnerabilities and threats to support organizational risk management decisions
+++ Six Steps : Define an ISCM stragtegy, Establish an ISCM program, Implement an ISCM program, Analyze data and Report Findings, Respond to findings, Review and Update the ISCM stragtegy and program
+
+If we torture the data long enough, it will tell us anything we want to know. 
+Good metrics - Collect data that is relevant and make decisions, frequency of collection, how to report , automated processes, tools doing what we want them to do, review and update the stragtegy
+
+Information Security: Security Operations
+=========================================
+=========================================
+
+Supporting Investigations
+=========================
+
+Do the best you can and follow law,policies and regulations
+Preserve evidence 
+Fully co-operate with the investigation
+
+Internal/Adminstrative Investigation: e.g employee outside AUP 
+Criminal: Crime happened, and govt prosecuting entity or individual (Evidence beyond reasonable doubt)
+Civil: Between two parties ( Enough evidence to support alleged claims)
+Regulatory: PCI-DSS compliance not followed 
+
+Preserve evidence in all of them 
+
+Fact Witnesses: who saw, heard ,touched something about the case 
+Expert Witnesses: with knowledge to give an opinion based on credentials
+
+Types of Evidence
+=================
+
+Direct (From 1 or more of Witnesses senses) - Bob saw something with eyes (one of five senses, first hand observer) 
+Real/Physical (Tangible Objects) 
+Best (Unaltered original contract)
+Secondary(Copy of contract)
+Conclusive(Very strong on its own): Neighbor complaining you killed his cat, you brought a cat with neighbors cat DNA - conclusive 
+Corroborative(Not standalone)
+Circumstantial (Deduction/Inference): Bob watched george cut down cherry tree(Bob Testimony - Direct), Lois chatting with George one hour before and told him I am gonna go cut down the cherry tree(Lois testimony - Circumstantial)
+Hearsay (Not Firsthand): If Lois told Karen, if Karen called to court her testimony will be hearsay
+
+Chain of Custody
+================
+
+Handling the evidence: who collected, how it was collected, how it was labeled, who transported, who recieved, how stored etc. 
+Hard-drive: disk image and hashing to document and prove nothing has changed since we collected that hard drive 
+If we dont handle chain of custody, evidence may not be admissible in the court 
+Evidence Relevant to the case 
+If HD formatted, take it to lab and data might be recovered 
+If new software build in process, pause it while investigating cyber crimes. Secrets might leak during investigations.
+
+Forensic Process
+================
+
+4 Phases: NIST 800-86 Guide to Integrating Forensic Techniques into Incident Response
+
+Collection: preserve integrity, backup of content hashes - use right tools - system running high priority since data is volatile 
+Examination: Extracting relevant data from collected data for investigation - 
+Analysis: Analyse results of the data extracted during examination
+Reporting: action did, tools use, recommendations, how identified to begin with, mitigation techniques to prevent it from happening again 
+
+Separation of Duties
+====================
+
+Preventative Adminstrative Control:
+
+Noone should a critical task in a system all by him/herself. Atleast 2
+If 4 roles Database Admin, Security Admin, Programmer and Data entry - Bob should give 2 roles to himself 
+Data entry & Programmer: He can leave integrity checks and then during data entry he can compromise the system with injection attacks 
+
+Detective Adminstrative Control:
+
+Rotation of Duties
+Role X - Bob first six months, then John in the same role , and then Chris 
+Trained Backup People 
+Cross Training 
+
+Mandatory Vacation:
+Bob 2 weeks vacation, Bob wont be able to do his fradulent activty and new person doing the role might detect it 
+
+Two-man control:
+Two people to execute - Change Control - Change created by one , Change reviewed by another and then management 
+Collusion when both are working together for unauthorized duties 
+
+Media Management
+================
+Protecting Data at Rest 
+Data in Motion: Memory 
+Data in Rest: HD
+
+Local Storage
+Cloud/Virtualized Storage
+Removable (Mobile Devices, USB etc.)
+
+AUP Policies signed by user 
+
+Technical Controls: 
+Encrypt: Hardware Based Encryption (Keys, data protected if HW stolen), Software Based Encryption - On files and folders 
+Interfaces: Sensitive data - how can a user can connect to access data , cloud what sort of regulations regarding storage of data
+Policies on computers to not plug removable media without appropriate access 
+If user has elevated priveleges, automated reporting to central logging system 
+Trained if they lose a laptop, USB etc etc. 
+
+Backups
+=======
+Full Backup - Takes time - Weekly - Quicker to Restore
+Incremental Backup - Less Time - Faster - Daily 
+
+Restore - Last full and then incrementals 
+
+Differential: The difference in incremental vs. differential backup is that, while an incremental backup only includes the data that has changed since the previous backup, a differential backup contains all of the data that has changed since the last full backup.
+
+SAT - Full
+SUN -  Diff 
+MON - Diff - Has everything that changed from SAT Full Backup 
+
+Restore with differential is simple than incremental. Full + 1 Differential (With incremental Full + all incrementals since then) 
+All incrementals are needed for restore. With differential, you need full and latest differential.
+
+Backup Types: 
+8mm
+DLT - (Super DLT) digital linear tape
+
+Rotation cycle: Move the media to a different location, if backups disks are where the gear is being backed up 
+Remote backups now , where DC is one city and Backup facility in another. 
+An optical jukebox is a robotic data storage device that can automatically load and unload optical discs, such as Compact Disc, DVD, Ultra Density Optical or Blu-ray disc and can provide terabytes (TB) and petabytes (PB) of tertiary storage. 
+Backup priority and safetly similar to the data stored on them. Important data with better backup measures, correctly labeled, clearance for people moving that data.
+
+Logging With Separation Of Duties
+=================================
+Bob, Sys Admin, all accounting logs to Log Server 
+Bob at the most real only access so that he cant modify logs in case he goes rogue 
+Roles: Identification -> Authentication -> Make changes -> Log Accountability
+Centralized time service for accurate time stamps on logs 
+What to log - Significant events for devices - Reboots, Config Changes, Encrypt as sending to log server, Failed logins (5 in 60s flag, block time to prevent brute force time), Password Changes as per policy
+Restrict Bob cant disable logging, access control 
+Retention Policy: Logs for 3 years, data older 3 years purge - automatic or manual - we are not liable for logs older than retention policy
+
+RAID Concepts
+=============
+
+Levels:
+0: 2 Disks - 1 TB + 1 TB - Appear as 2 TB drive - Good for speed but no fault tolerance
+1: 2 Disks - 1 TB + 1 TB - Appear as 1 TB drive - Mirroring writing table - Fault Tolerance 
+2
+3
+4
+5: Some brain CPU: In RAID solutions harware solution which takes care of that instead of passing it to CPU Multiple lets say 5 Disks - 1 TB each - Appear as 4 TB - Data will be allocated in a way that you can lose one disk without data loss 
+10: Minimum 4 Disks: RAID 0 on 2 sets doing RAID 1 of two disks - Mirrored + Striped across multiple drives 
+
+Hardware solution faster than software solution 
+
+Incident Response Overview
+==========================
+SPR: Stimulus Pause Response 
+Events vs Incidents: 
+Events: Email sent, SSH to server 
+Security Incident: Compromise to CIA, service, phishing attacks, peer to peer networking exfiltrate data 
+More prepared, better we are to contain the risk 
+
+NIST 800 Series - Special Publication SP 800-61 Rev 2 Computer Security Incident Handling Guide
+3 Ps
+Policy for Incident Handling : On Senior Management - Purpose Objectives Scope Definition Priority/Severity of Incidents 
+Plan based on Policy: Roadmap - Metrics around implementation - Mission 
+Procedures based on Policy and Plan - Details of technical processes, checklists etc. during Incident Handling
+
+Phases of Incident Handling
+===========================
+Preparation: Based on Policy and Plan, creating IRT, Tools, Resources to handle incident. Controls to mitigate and reduce the risk 
+Detection and Analysis: Apply prep
+Containment Eractication and Recovery: Contain incident based on prep, go back to Detection and Analysis to ensure other systems are not impacted
+Post Incident Activity : Reports - cause, cost and steps for future and learn from incident. Communicating report as per IR plan,educate as needed 
+
+Improving Security With Configuration Management
+================================================
+Identify Devices similar in nature
+Build Baseline configurations
+CI(Configuration Item) -> BC(Baseline Configuration)
+Baseline: 
+Switch:
+No telnet 
+All ports by default bogus vlan 999
+
+New element to include in BC -> Test , validate -> Update BC -> Update Library when configurations are stored -> BC Version Control 
+If config changes -> Constant monitoring -> Via change control go back and apply new BC 
+If change is going on all switches -> Asset inventory and device information -> Configuration Management Database
+
+Patch Management
+================
+Security Patches: High Priority - Expediting way of Change Control - Security Update
+Critical Update: Application does not stop 
+Functionality/Feature Improvement Update: Dont rush - Not as high priority
+Before you apply:
+Testing: In non prod to ensure it does not affect the system, Regression testing 
+Change Control : MW - Detailed rollback process - Document what changes you are doing 
+In production environment, windows update scheduled updates, test and then push based on priority, MW and change control 
+
+Change Management
+=================
+
+Requests/Drivers: Proactive | Reactive (Security Vuln, Critical Features)
+Success 
+Minimal Disruption
+Harming/Degrading Security 
+
+Documented: Bob CD Drive  
+Evaluated/Tested: Only certian vendor, no Write capability for the drive 
+Formalized Rollback
+CCB Change Control Board - Review the change - Technical Person and Manager and others 
+For little things, pre authorize - Standard Changes - still documentation but not reviewed by board 
+Critical changes : Emergency change - special procedures in handling critical requests 
+identify change window, communicate to involved, implement change, separate parties who creates, approves and implements, updated configuration management database 
+Metrics: KPI Key performance indicators, how many come, how many success on first attempt, how many emergencies 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
