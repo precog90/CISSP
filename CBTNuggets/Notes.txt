@@ -1225,12 +1225,429 @@ Critical changes : Emergency change - special procedures in handling critical re
 identify change window, communicate to involved, implement change, separate parties who creates, approves and implements, updated configuration management database 
 Metrics: KPI Key performance indicators, how many come, how many success on first attempt, how many emergencies 
 
+Comparing IDS and IPS
+=====================
+
+Attack Surface: Sum of all potential ways system can be compromised
+IDS: intrusion detection system - Copy - Cant stop the attack
+IPS: intrusion prevention system - Inline - Prevents the attack
+
+IDS and IPS Detection Methods
+=============================
+
+Pattern Matching - Signatures
+Protocol Analysis - Like No SYN 
+Heuristic or Anomaly Based - On average 40-50 1/2 formed sessions normal and considered baseline. If more, it will flag and considered anomaly - May take a bit of time and tuning - False positives - False Negatives - Want True Positives/True Negatives
+Global Threat Correlation - Help from cloud - Worldwide database of attacks and shared with our NGFW  
+
+Network Vs Host Based IDS/IPS
+=============================
+
+NGFW: Integrated IPS/IDS - Protect all traffic passing through 
+Encrypted file downloaded and decrypts malware on PC - we need Host Based IPS/IDS - Running on computers and checking all the activity to find  malicious behavior - More restrictive policies on critical systems - Whitelisting for apps allowed to run and policies enforced by HIPS/HIDS - cost involved - some devices dont support the software - AV/Ant malware everywhere with HIPS/HIDS on critical systems
+
+IDS and IPS Alarms
+==================
+
+False Positives - Innocent traffic considered malicious 
+False Negatives - Attack but not alarmed as malicious
+
+We want 
+True Positives - Sees and report malicious 
+True Negatives - Innocent traffic and not reported 
+
+Attacker an overload IPS/IDS with bogus attacks, then it is hard to track real ones 
+Attacker can fragment the attacks, making it hard for IDS/IPS to reassemble 
+
+IDS/IPS employ a technique called normalization - redundant alarms agregated - only considering certain type of traffic - 
+AC/AM updated with latest signatures
+
+Traditional and Next Generation Firewalls
+=========================================
+In Both Traditional and NGFW:
+
+Stateful Inspection - Any inbound sessions by default drop. Bob inside goes to outside reply traffic maintained in a session to be let in
+ACLs for filtering - Explicitly allow or deny the traffic 
+
+In NGFW:
+Limit facebook - DPI - Layer 7 
+Who the user is behind IP address 
+Location Awareness
+Types of Browsers 
+Device types 
+and apply policies based on that 
+
+Categorization Vulnerabilities with CVSS
+========================================
+Commmon Vulnerability Scoring System provides an open framework for communicating the characteristics and impacts of IT vulnerabilities. 
+Vendor agnostic 
+Communicate severity of vulnerabilities
+Numerical score -high number high severity 
+Low(0) Medium High Critical(10)
+To come up with score - in calculator - put metrics 
+Base Metrics: Constant over time across all environment - impact - Capture the characteristics of the vulnerabilities - help understand applicability of the vuln to the system 
+For e.g 
+Attack Vector: Bad(Local) Worse(Adjacent) Worst(Network)
+Integrity Impact: Bad(None) Worse(Low) Worst(High)
+and so on 
+ 
+Temporal Metrics - characterstics that can change over time - if there is expolit available that would increase the risk - if patch is available that would decrease the risk 
+
+Environmental - Depend on org and group of users - Defence Department TS data vuln higher risk if present 
+
+Input the score, to find the best CVSS 
+
+Calculating Vulnerability Scores
+=================================
+https://www.first.org/cvss/calculator/3.0
+CVSS 3.0 Calculator
+You fill in Base/Environmental/Temporal metrics and it gives you severity of a vulnerabilitiy with a score out of 10 
+
+BASE METRICS FOR CVSS:
+
+Attack Vector
+Value	Description
+Network (N)	Attacker exploits vulnerability only through OSI layer 3 and are called "remotely exploitable".
+Adjacent (A)	Attacker exploits vulnerability only through shared physical network.
+Local (L)	Attacker exploits the vulnerability locally or may depend on user interaction.
+Physical (P)	Vulnerable component must be physically touched or controlled by the attacker.
+
+Attack Complexity
+Value	Description
+Low (L)	Attacker can be successful more than once against the vulnerable component.
+High (H)	Attacker must be more prepared to execute a successful attack on the vulnerable component.
+
+Privileges required
+Value	Description
+None (N)	The attacker doesn't need access to files or setting to attack. Attacker is unauthorized.
+Low (L)	Attacker requires privileges to attack usually affects files and owned settings. Attacker has low authorization.
+High (H)	Attacker needs privileges that give them control and affects component wide files and settings.
+
+User Interaction
+Value	Description
+None (N)	Exploitations of vulnerability can be done without any interaction from any user.
+Required (R)	The user can do exploitation of vulnerability only after any action.
+ 
+Scope
+Value	Description
+Unchanged (U)	The impacted component and the vulnerable component are the same. Resources affected are controlled by the same authority.
+Changed (C)	The impacted component and the vulnerable component are different. The same authority does not control resources affected.
+
+Confidentially impact
+Value	Description
+High (H)	All resources of the impacted component are disclosed to the attacker due to total loss of confidentiality.
+Low (L)	Attacker can't control the restricted information that is obtained. Some loss of confidentiality.
+None (N)	No loss of confidentiality.
+
+Integrity Impact
+Value	Description
+High (H)	Total loss of integrity or protection. Attacker can alter any file.
+Low (L)	Attacker can modify a file but cannot control the consequences.
+None (N)	No loss of integrity.
+
+Availability Impact
+Value	Description
+High (H)	Attacker can deny full access to resources in the impacted component. Total loss of availability.
+Low (L)	Attacker cannot deny totally. Partial or full resources are available only for a certain period.
+None (N)	No loss of availability.
+
+Honeypots
+==========
+
+No sensitive data on the system, put in there to see who attacks and what kind of attacks. 
+
+Types and Methods:
+High Interaction Honeypot - Port open 80 but web server and website running on the webserver
+Low Interaction Honeypot - Port open 80 but no web server
+
+Honeynet: Collection of servers - web/sql/database working together but no confidential or sensitive data 
+
+
+https://www.atomicsoftwaresolutions.com/ - Product Honeybot 
+
+Fault Tolerance for Availability
+=================================
+
+Redundant Network Backbone 
+Clustered Servers 
+Trusted Hardware: CMW Compartmented Mode Workstation [ Access Control, Labels, AAA]
+I/O Systems and Processing is done in a standard manner 
+CPU Architecture: Rings 0(Kernel - Unrestricted access to other rings) to 3(User) - 0 More Secure 3 Less Secure 
+
+DR and Alternate Sites 
+======================
+
+In case of disaster where there is no other option, Alternate site 
+Hot Alternate Site: 100% Replication - Cutover superfast - Very expensive - Maintaining CIA - Dedicated 
+Cold Alternate Site: Least Expensive - Cutover slow - Geo separated from current production site - Hard to test - just a building
+Warm: Some network infrastructure - Some telecom infrastructure - no computers but no replication - Cost between hot and cold 
+
+H/W and S/W Planning for DR
+===========================
+H/W = MTBF Mean time between failures 100,000 hours vs 500 hour MTBF - Higher MTBF is desirable 
+MTTR Mean time to repair Lower MTTR is desirable 
+
+S/W= Source code in escrow, if software provider goes belly up escrow company can provide the source code to us
+Servers= Load Balancing 
+In Servers = RAID/ Storage Area Networking and Disk Subsytem is fault tolerant, dual network connections to SAN
+
+Directing and Communicating DR
+==============================
+
+DR Manager - Go to person to direct steps 
+Media - Noone Except CEO 
+RTO: Recovery Time Objective - if RTO 30 mins, we need a hot side ready to go  if RTO 30 days, we probably dont need a hot site
+Priority Levels for systems - Critical ones first so RTO can be met 
+
+Test, Train and Maintain: Reality check 
+
+Who is responsible for a functional DR and BC policy?
+- Senior Management 
+
+How should a manager learn of a major company incident
+- Personal contact - Call Tree/Text tree
+
+What is important regarding cloud based DR?
+- CIA [Encryption] 
+- Where is data stored? US company in US 
+- How to delete the data? Encrypted, delete the keys 
+
+Personal Safety and Security
+============================
+Security Awareness + Training 
+No piggybacking - mantraps are best 
+Acceptable Use Policy - Systems are for company use 
+Mobile Device Usage - Not connecting to free/open Wi-Fi
+Users are weakest link - Training on social engineering 
+Duress - Dont do anything unlawful, if you did not do it external entity cant use it against you
+Emergency Management - What will happen in case of emergency what everyone should do, physical routes in and out, assembly areas designated so they can be accounted for 
+Drills for the policies - once or couple times a year
+Protect Human Life is highest priority 
+
+Software Development Security
+=============================
+=============================
+
+Software Development Security
+=============================
+Application and Software Dev has dramatically increased in scope and complexity
+Regulations regarding software operations, data, transmissions and software arch have grown in scope as well
+Vuln can be easily introduced unwittingly 
+A metholodigical approach will always will be more stable and secure
+
+OWASP Top 10: 
+1. Verify Security Early and Often 
+2. Parameterize Queries: 
+Query parameterization refers to the process of building database queries in application code in a specialized way. Query parameterization first defines all static SQL code, and then passes in each parameter to the query in a separate section of code. This coding style allows the database to distinguish between code and data, regardless of what user input is supplied, and successfully defends against SQL Injection.
+3. Encode/Encrypt Data
+4. Validate all inputs
+5. Implement identity and authencation controls
+6. Implement access controls
+7. Protect Data
+8. Implement logging and intrusion detection 
+9. Leverage security frameworks and libraries
+10. Handle errors and exceptions gracefully
+
+Software Development Life Cycle
+===============================
+SDLC categorizing the processes into buckets 
+Phases:
+Initiation - Sensitive data, Group of Users accessing that data
+Design - Formalize plans to address security 
+Development - Build security into software
+Implementation - Rolling to production - Test and deploy security processes 
+Maintenance - Ongoing phase while in production - Exercise security and DR 
+End of Life - Ready to turn off - Unwind and destroy processes - Revoking permissions to avoid permission creep
+
+Security at every step. Proactive Security is better. 
+Testing:
+Unit Testing
+Integration Testing 
+Regression Testing 
+User Acceptance Testing 
+
+Code Review 
+Quality Assurance Review 
+
+Resolve Bugs/Flaws
+
+Review Common Vulnerabilities and Exposures(CVEs)
+
+Change Management
+=================
+
+In implementation and Maintenance phase - Planning, implementing, evaluating and tracking changes and updates to existing software or systems 
+
+Identify, Roles and Responsiblities
+- Requestor
+- Review Board 
+- Manager 
+- Implementation Team
+
+Document the Process:
+- Type of Change
+- Reason for Request 
+- CM ( How will it be done?)
+- Approval/ Sign Off 
+- Rollback Plan 
+
+Software Capability Maturity Model (CMMI)
+=========================================
+
+The Capability Maturity Model Integration (CMMI) is a process and behavioral model that helps organizations streamline process improvement and encourage productive, efficient behaviors that decrease risks in software, product and service development.
+Categorize the level of maturity of an organisation's software development process 
+
+Five levels to the CMMI:
+
+- Initial : Unpredictable, poorly controlled, reactive 
+- Managed : Minimal Control, Planned, still reactive 
+- Defined : Standardized, Documented Processes, Proactive 
+- Quantitatively Managed : Metrics collected for performance, drives process adjustments 
+- Optimized : Continous improvement of processes with new ideas and innovation in industry
+
+Levels are progressive - Each stage better n better software development process 
+
+THE IDEAL Model for process improvement 
+
+Initiating :Define the process improvement project 
+Diagnosing : Identify the baseline(current) processes
+Establishing : Create the plan to improve processes 
+Acting : Implement the plan 
+Learning : Learn from the experience 
+
+Programming Concepts
+=====================
+
+Computers speak Machine Language - Not intuitive, Error Prone, Precise, Efficient, CPU Specific - Different computers different instruction sets 
+High Level Languages: C, C++, Python, Java - More intuitive, easier to maintain, less precise, less efficient 
+
+High Level languages compiled to Machine language -> Executable/Binary in Machine Language 
+
+Security Concerns with Progamming:
+- Source code control and versioning 
+- Restrict access to appropriate personnel
+- Code Review More Eyes are better 
+- Test, Test more then test again - All types of testing - Automate Testing vastly superior
+- Change Management Controls - Approvals/Change is documented 
+- Document and Routinely Exercise DR and BC Plans
+
+Programming Methodology
+=======================
+
+Imperative - State changes are instructed by the programmer 
+- Procedural
+- Object Oriented
+
+Declarative - Desired outcome is instructed
+- Functional 
+- Logical 
+- Mathematical 
+
+"Imperative" is just code that also declares how and in what order you need to calculate something.Declaratively, every sort algorithm is the same: given the same input, it has the same output.
+
+Object Oriented Programming is combining self contained objects into a larger picture
+Classes: Blocks of code that describe behavior and possible properties 
+Objects are instances of classes with particular properties that can differ from one another 
+
+Class of House: color, layout etc. 
+Objects: Different house with different colours and layouts 
+
+Challenges with Distributed Computing: 
+- Communication across organizational boundaries
+- Separation of Duties
+- Authentication Federation 
+- Distribution of Mobile Code 
+
+HTTPS (TLS or SSL) Encryption in Transit/Memory
+Authentication: Single Sign-on - Federation Server Microsoft AD FS
+Browser cookies are no longer considered secure - SAML 2.0 is preferred security assertion markup language 
+Robust Access Control such as RBAC or MAC 
+
+OWASP Open Web Application Security Project 
+- Pen Testing toolkit
+- Guides
+
+Common Software Vulnerabilities
+===============================
+Understand common attack vectors
+Plan and Document preventative measures 
+Perform attack and pen testing 
+
+Malware 
+
+Zero Day Exploits: Attack before it is known or made public
+Virus
+Worm
+Trojan Horse
+Rootkit/Backdoors
+Adware
+Spyware
+Ransomware 
+Key Loggers
+
+Security and Systems are up to date
+
+Injection Attacks: Lack Input Validation - SQL Injection - Validate Input Prior to sending to database 
+Buffer Overflow: Submit more information than the program allocated memory space for - Crashes the system - Malicious code to be executed
+Bad Garbage Collection: potentialially sensitive information can be left exposed - Garbage collectors built in Java,C# but not in C
+Memory leak: Continually allocating memory but never releasing it eventually crashing the system 
+Residual Maintenance Hooks: Debugging code, but left in there. Cleanup Maintenance hooks
+Race Conditions: Multiple operations occur same time and create a temporary vuln 
+
+Web Software Vulnerabilities
+============================
+
+Communication happen over internet 
+Data Transmissions can cross organizational, legal and sovereign boundaries 
+
+Cross Site Scripting: Form of MITM
+
+Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites. XSS attacks occur when an attacker uses a web application to send malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user within the output it generates without validating or encoding it.
+
+An attacker can use XSS to send a malicious script to an unsuspecting user. The end user’s browser has no way to know that the script should not be trusted, and will execute the script. Because it thinks the script came from a trusted source, the malicious script can access any cookies, session tokens, or other sensitive information retained by the browser and used with that site. These scripts can even rewrite the content of the HTML page. 
+
+
+Stored aka Persistent XSS, Stored XSS generally occurs when user input is stored on the target server, such as in a database, in a message forum, visitor log, comment field, etc. And then a victim is able to retrieve the stored data from the web application without that data being made safe to render in the browser.
+
+Reflected aka Non Persistent XSS: 
+User clicks phony links
+Reflected XSS occurs when user input is immediately returned by a web application in an error message, search result, or any other response that includes some or all of the input provided by the user as part of the request, without that data being made safe to render in the browser, and without permanently storing the user provided data
+
+Provide User Awareness Training 
+Same Origin Policy across all apps/websites
+
+Web Cache Posisoning : Manipulating a cached version of a web request in order to attack users. (If server caches responses to distribute to other users) Secure the cache servers 
+Hijacking via Phishing: Copying a legit site - Social Engineering 
+
+User Awareness Training 
+Manually type URLs instead of clicking provided links 
+Aggressive blacklist and whitelist for organizational networks 
+Directory Transversal Web crawlers or spiders try to access additional folders on a web server 
+File system security should be included 
+
+
+
+
 
 
 
 
 
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
